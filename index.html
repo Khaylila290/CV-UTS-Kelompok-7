@@ -1,328 +1,497 @@
+
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Khaylila Arnesha Putri | Portfolio</title>
-    <meta
-      name="description"
-      content="Portfolio pribadi Khaylila Arnesha Putri, mahasiswa baru Program Studi Manajemen Pendidikan."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="container nav-wrap">
-        <a href="#home" class="brand">KAP</a>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portofolio CV | Nama Kamu</title>
 
-        <button class="nav-toggle" aria-label="Toggle navigation">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
 
-        <nav class="nav">
-          <ul>
-            <li><a href="#home">Beranda</a></li>
-            <li><a href="#about">Tentang Saya</a></li>
-            <li><a href="#education">Pendidikan</a></li>
-            <li><a href="#experience">Pengalaman</a></li>
-            <li><a href="#achievements">Prestasi</a></li>
-            <li><a href="#skills">Keahlian</a></li>
-            <li><a href="#contact">Kontak</a></li>
-          </ul>
-        </nav>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f6ff;
+      color: #29243d;
+      line-height: 1.7;
+    }
 
-        <button class="theme-toggle" aria-label="Toggle dark mode">
-          <span class="theme-icon">🌙</span>
-        </button>
+    nav {
+      background: #ffffff;
+      padding: 18px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 3px 15px #dcd5f5;
+    }
+
+    .logo {
+      font-size: 23px;
+      font-weight: bold;
+      color: #7857f6;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #39314f;
+      margin-left: 20px;
+    }
+
+    nav a:hover {
+      color: #ed65ac;
+    }
+
+    .hero {
+      min-height: 90vh;
+      padding: 70px 8%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 50px;
+      background: linear-gradient(135deg, #eee8ff, #ffe7f2, #e1f5ff);
+    }
+
+    .hero-text {
+      flex: 1;
+      animation: fadeIn 1s ease;
+    }
+
+    .hero-text h1 {
+      font-size: clamp(35px, 5vw, 55px);
+      line-height: 1.2;
+      margin: 20px 0;
+    }
+
+    .hero-text h1 span {
+      color: #7857f6;
+    }
+
+    .hero-text p {
+      color: #6e6880;
+      margin-bottom: 25px;
+    }
+
+    .badge {
+      background: white;
+      color: #7857f6;
+      padding: 9px 16px;
+      border-radius: 30px;
+      display: inline-block;
+      font-weight: bold;
+    }
+
+    .btn {
+      display: inline-block;
+      border: none;
+      cursor: pointer;
+      background: #7857f6;
+      color: white;
+      padding: 12px 22px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 15px;
+      margin: 5px 5px 5px 0;
+      transition: .3s;
+    }
+
+    .btn:hover {
+      background: #ed65ac;
+      transform: translateY(-3px);
+    }
+
+    .btn-light {
+      background: white;
+      color: #7857f6;
+      border: 1px solid #7857f6;
+    }
+
+    .profile {
+      width: 280px;
+      height: 340px;
+      object-fit: cover;
+      border-radius: 150px 150px 30px 30px;
+      border: 8px solid white;
+      box-shadow: 0 15px 40px #b8a7e8;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    section {
+      padding: 75px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title h2 {
+      font-size: 32px;
+      color: #7857f6;
+    }
+
+    .section-title p {
+      color: #777087;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      padding: 28px;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px #e5def6;
+      transition: .3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      color: #7857f6;
+      margin-bottom: 12px;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .skills span {
+      padding: 8px 13px;
+      border-radius: 20px;
+      background: #eee8ff;
+      color: #6747d6;
+      font-size: 14px;
+    }
+
+    .timeline {
+      max-width: 800px;
+      margin: auto;
+      border-left: 3px solid #7857f6;
+      padding-left: 25px;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 25px;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -35px;
+      top: 12px;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: #ed65ac;
+      border: 3px solid white;
+      box-shadow: 0 0 0 2px #7857f6;
+    }
+
+    .date {
+      display: inline-block;
+      margin-top: 7px;
+      color: #7857f6;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .education {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .contact {
+      text-align: center;
+      background: linear-gradient(135deg, #7857f6, #ed65ac);
+      color: white;
+      border-radius: 25px;
+      padding: 45px 20px;
+    }
+
+    .contact .btn {
+      background: white;
+      color: #7857f6;
+      margin-top: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #777087;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: .7s;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateX(-25px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @media (max-width: 750px) {
+      nav {
+        padding: 15px 5%;
+        flex-wrap: wrap;
+      }
+
+      nav a {
+        margin-left: 8px;
+        font-size: 13px;
+      }
+
+      .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 50px 6%;
+      }
+
+      .profile {
+        width: 220px;
+        height: 270px;
+      }
+
+      .about-grid,
+      .education {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 55px 6%;
+      }
+    }
+
+    @media print {
+      nav, .btn {
+        display: none !important;
+      }
+
+      body {
+        background: white;
+      }
+
+      section {
+        padding: 25px 5%;
+        break-inside: avoid;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="logo">PORTOFOLIO.</div>
+    <div>
+      <a href="#tentang">Tentang</a>
+      <a href="#pengalaman">Pengalaman</a>
+      <a href="#pendidikan">Pendidikan</a>
+      <a href="#kontak">Kontak</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-text">
+      <span class="badge">✨ Mahasiswa & Aktivis Organisasi</span>
+      <h1>Halo, Saya<br><span>Nama Kamu!</span></h1>
+      <p>
+        Saya adalah mahasiswa yang aktif, kreatif, dan senang
+        mempelajari hal baru. Saya memiliki minat dalam organisasi,
+        komunikasi, kerja sama tim, dan kegiatan sosial.
+      </p>
+
+      <a href="#pengalaman" class="btn">Lihat Pengalaman</a>
+      <button class="btn btn-light" onclick="window.print()">
+        Simpan CV PDF
+      </button>
+    </div>
+
+    <div>
+      <!-- Ganti foto.jpg dengan foto profil milikmu -->
+      <img src="foto.jpg" alt="Foto Profil" class="profile"
+           onerror="this.src='https://placehold.co/280x340/e9ddff/7857f6?text=Foto+Kamu'">
+    </div>
+  </header>
+
+  <section id="tentang" class="reveal">
+    <div class="section-title">
+      <h2>Tentang Saya</h2>
+      <p>Kenali profil dan kemampuan saya</p>
+    </div>
+
+    <div class="about-grid">
+      <div class="card">
+        <h3>👋 Profil Singkat</h3>
+        <p>
+          Saya merupakan pribadi yang bertanggung jawab,
+          disiplin, komunikatif, dan mampu bekerja dalam tim.
+          Saya ingin terus berkembang melalui pendidikan,
+          organisasi, dan pengalaman baru.
+        </p>
+        <br>
+        <p><b>Nama:</b> Nama Lengkap Kamu</p>
+        <p><b>Domisili:</b> Kota Kamu</p>
+        <p><b>Status:</b> Mahasiswa</p>
       </div>
-    </header>
 
-    <main>
-      <section id="home" class="hero section">
-        <div class="container hero-grid">
-          <div class="profile-card reveal">
-            <div class="profile-photo" aria-label="Foto profil">
-              <span>K</span>
-            </div>
-          </div>
-
-          <div class="hero-content reveal">
-            <h1>Khaylila Arnesha Putri</h1>
-            <p class="status">Mahasiswa Baru</p>
-
-            <div class="contact-inline">
-              <span>📞 0895365451284</span>
-              <span>✉️ arnesha2905@gmail.com</span>
-              <span>📍 Bogor, Jawa Barat</span>
-            </div>
-
-            <div class="edu-box">
-              <div class="section-label">
-                <span class="icon">🏫</span>
-                <h2>Riwayat Pendidikan</h2>
-              </div>
-
-              <div class="edu-item">
-                <h3>Universitas Islam Negeri Syarif Hidayatullah Jakarta</h3>
-                <p>Jakarta, Indonesia</p>
-                <p>2025 – Sekarang</p>
-                <p>Program Studi Manajemen Pendidikan</p>
-              </div>
-
-              <div class="edu-item">
-                <h3>MA Ummul Quro Al-Islami</h3>
-                <p>Bogor, Indonesia</p>
-                <p>Ilmu Pengetahuan Alam, Nilai 91,35 / 100,00</p>
-                <p>2021 – 2025</p>
-              </div>
-
-              <div class="edu-item">
-                <h3>Arabic Language Course Certification AnNajah</h3>
-                <p>Pare</p>
-                <p>Maret 2022</p>
-              </div>
-            </div>
-          </div>
+      <div class="card">
+        <h3>🚀 Keterampilan</h3>
+        <p>Kemampuan yang saya kembangkan:</p>
+        <div class="skills">
+          <span>Komunikasi</span>
+          <span>Kerja Tim</span>
+          <span>Kepemimpinan</span>
+          <span>Public Speaking</span>
+          <span>Manajemen Waktu</span>
+          <span>Microsoft Office</span>
+          <span>Administrasi</span>
         </div>
-      </section>
-
-      <section id="about" class="section">
-        <div class="container">
-          <div class="section-heading reveal">
-            <div class="heading-badge">👤</div>
-            <h2>Tentang Saya</h2>
-          </div>
-
-          <div class="card reveal">
-            <p>
-              Mahasiswa aktif Program Manajemen Pendidikan yang memiliki kemampuan
-              komunikasi yang baik dan pengalaman di publikasi serta dokumentasi.
-              Berpengalaman dalam perencanaan desain kreatif, produksi konten media
-              sosial, dan penyusunan dokumentasi. Memiliki komitmen untuk
-              mengembangkan kemampuan manajemen, terutama di media sosial.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section id="education" class="section">
-        <div class="container">
-          <div class="section-heading reveal">
-            <div class="heading-badge">🎓</div>
-            <h2>Pendidikan</h2>
-          </div>
-
-          <div class="timeline reveal">
-            <article class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-content">
-                <h3>Universitas Islam Negeri Syarif Hidayatullah Jakarta</h3>
-                <p>Program Studi Manajemen Pendidikan</p>
-                <p>Jakarta, Indonesia</p>
-                <p>2025 – Sekarang</p>
-              </div>
-            </article>
-
-            <article class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-content">
-                <h3>MA Ummul Quro Al-Islami</h3>
-                <p>Ilmu Pengetahuan Alam</p>
-                <p>Nilai: 91,35 / 100,00</p>
-                <p>Bogor, Indonesia</p>
-                <p>2021 – 2025</p>
-              </div>
-            </article>
-
-            <article class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-content">
-                <h3>Arabic Language Course Certification AnNajah</h3>
-                <p>Pare</p>
-                <p>Maret 2022</p>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="experience" class="section">
-        <div class="container">
-          <div class="section-heading reveal">
-            <div class="heading-badge">💼</div>
-            <h2>Pengalaman</h2>
-          </div>
-
-          <div class="experience-group reveal">
-            <h3>Organisasi</h3>
-            <ul class="list">
-              <li>
-                <strong>Ikatan Santri Putri (ISPI)</strong>
-                <span>Sekretaris Bagian Pengajaran dan Adab</span>
-                <small>2024 – 2025</small>
-              </li>
-              <li>
-                <strong>Pergerakan Mahasiswa Islam Indonesia (PMII)</strong>
-                <span>Anggota PMII Rayon Manajemen Pendidikan</span>
-                <small>2025 – Sekarang</small>
-              </li>
-              <li>
-                <strong>Himpunan Mahasiswa Program Studi Manajemen Pendidikan</strong>
-                <span>Sekretaris Departemen Komunikasi, Informasi, dan Publikasi</span>
-                <small>2026 – Sekarang</small>
-              </li>
-            </ul>
-          </div>
-
-          <div class="experience-group reveal">
-            <h3>Kepanitiaan dan Kegiatan Lainnya</h3>
-            <ul class="list">
-              <li>
-                <strong>Pergantian Pengurus (PERGARUS) Pesantren Modern Ummul Quro Al-Islami</strong>
-                <span>Wakil Ketua Bagian Keamanan</span>
-                <small>Desember 2023</small>
-              </li>
-              <li>
-                <strong>Member Show (MS) Pesantren Modern Ummul Quro Al-Islami</strong>
-                <span>Penanggung Jawab Penampilan Paskibra Variasi Formasi</span>
-                <small>Desember 2023</small>
-              </li>
-              <li>
-                <strong>Pekan Olahraga dan Seni (PORSEN)</strong>
-                <span>Koordinator Lapangan Bagian Putri</span>
-                <small>09 Juli 2024</small>
-              </li>
-              <li>
-                <strong>Tablig Akbar Pesantren Modern Ummul Quro Al-Islami</strong>
-                <small>28 Agustus 2026</small>
-              </li>
-              <li>
-                <strong>Mapaba Kharisma PMII Rayon Manajemen Pendidikan</strong>
-                <span>Divisi Publikasi dan Dokumentasi</span>
-                <small>23 November 2025</small>
-              </li>
-              <li>
-                <strong>Pelantikan Pengurus PMII Rayon Manajemen Pendidikan 2026</strong>
-                <span>Divisi Konsumsi</span>
-                <small>11 April 2026</small>
-              </li>
-              <li>
-                <strong>Pengenalan Budaya Akademik dan Kemahasiswaan Manajemen Pendidikan 2026</strong>
-                <span>Koordinator Divisi Publikasi dan Dokumentasi</span>
-                <small>28 Agustus 2026</small>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section id="achievements" class="section">
-        <div class="container">
-          <div class="section-heading reveal">
-            <div class="heading-badge">🏆</div>
-            <h2>Prestasi</h2>
-          </div>
-
-          <div class="card reveal">
-            <ul class="award-list">
-              <li>
-                <strong>Sekretaris Terbaik Departemen Komunikasi, Informasi, dan Publikasi</strong>
-                <span>HMPS Manajemen Pendidikan 2026, UIN Jakarta</span>
-                <small>28 Agustus 2026</small>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section id="skills" class="section">
-        <div class="container">
-          <div class="section-heading reveal">
-            <div class="heading-badge">⚙️</div>
-            <h2>Keahlian</h2>
-          </div>
-
-          <div class="skills-grid">
-            <div class="card reveal">
-              <h3>Bahasa</h3>
-              <ul class="chip-list">
-                <li>Bahasa Indonesia (Fasih)</li>
-                <li>Bahasa Inggris (Menengah)</li>
-              </ul>
-            </div>
-
-            <div class="card reveal">
-              <h3>Hard Skills</h3>
-              <ul class="chip-list">
-                <li>Microsoft Office</li>
-                <li>MS Word</li>
-                <li>MS PowerPoint</li>
-                <li>Google Drive</li>
-                <li>Canva</li>
-                <li>CapCut</li>
-                <li>Fotografi</li>
-                <li>Videografi</li>
-              </ul>
-            </div>
-
-            <div class="card reveal">
-              <h3>Soft Skills</h3>
-              <ul class="chip-list">
-                <li>Manajemen waktu</li>
-                <li>Kerja tim</li>
-                <li>Public speaking</li>
-                <li>Kritis</li>
-                <li>Problem solving</li>
-                <li>Komunikasi</li>
-                <li>Dokumentasi</li>
-                <li>Edukasi</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" class="section">
-        <div class="container">
-          <div class="section-heading reveal">
-            <div class="heading-badge">📞</div>
-            <h2>Kontak</h2>
-          </div>
-
-          <div class="contact-grid reveal">
-            <div class="contact-card">
-              <p><strong>Nomor Telepon</strong></p>
-              <a href="tel:+62895365451284">0895365451284</a>
-            </div>
-
-            <div class="contact-card">
-              <p><strong>Email</strong></p>
-              <a href="mailto:arnesha2905@gmail.com">arnesha2905@gmail.com</a>
-            </div>
-
-            <div class="contact-card">
-              <p><strong>Lokasi</strong></p>
-              <span>Bogor, Jawa Barat</span>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="container">
-        <p>© 2026 Khaylila Arnesha Putri</p>
       </div>
-    </footer>
+    </div>
+  </section>
 
-    <script src="script.js"></script>
-  </body>
+  <section id="pengalaman" class="reveal">
+    <div class="section-title">
+      <h2>Pengalaman Kegiatan</h2>
+      <p>Perjalanan organisasi dan kegiatan saya</p>
+    </div>
+
+    <div class="timeline">
+
+      <div class="timeline-item card">
+        <h3>Member Show</h3>
+        <span class="date">Desember 2023</span>
+        <p>Partisipasi dalam kegiatan Member Show.</p>
+      </div>
+
+      <div class="timeline-item card">
+        <h3>PORSENI</h3>
+        <span class="date">9 Juli 2024</span>
+        <p>Partisipasi dalam Pekan Olahraga dan Seni.</p>
+      </div>
+
+      <div class="timeline-item card">
+        <h3>Tabligh Akbar</h3>
+        <span class="date">9 Januari 2025</span>
+        <p>Partisipasi dalam kegiatan keagamaan Tabligh Akbar.</p>
+      </div>
+
+      <div class="timeline-item card">
+        <h3>Mapaba Kharisma</h3>
+        <span class="date">23 November 2025</span>
+        <p>Mengikuti kegiatan MAPABA Kharisma PMII.</p>
+      </div>
+
+      <div class="timeline-item card">
+        <h3>Pelantikan Pengurus PMII</h3>
+        <span class="date">11 April 2026</span>
+        <p>Partisipasi dalam kegiatan pelantikan pengurus PMII.</p>
+      </div>
+
+      <div class="timeline-item card">
+        <h3>PBAK</h3>
+        <span class="date">28 Agustus 2026</span>
+        <p>Partisipasi dalam Pengenalan Budaya Akademik dan Kemahasiswaan.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="pendidikan" class="reveal">
+    <div class="section-title">
+      <h2>Pendidikan</h2>
+      <p>Riwayat pendidikan saya</p>
+    </div>
+
+    <div class="education">
+      <div class="card">
+        <h3>🎓 Nama Universitas</h3>
+        <p>Program Studi / Jurusan</p>
+        <p>Tahun masuk – Sekarang</p>
+      </div>
+
+      <div class="card">
+        <h3>📚 Nama SMA / SMK / MA</h3>
+        <p>Nama sekolah sebelumnya</p>
+        <p>Tahun masuk – Tahun lulus</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontak" class="reveal">
+    <div class="contact">
+      <h2>Mari Terhubung!</h2>
+      <p>
+        Saya terbuka untuk berjejaring, berkolaborasi,
+        dan mendapatkan kesempatan baru.
+      </p>
+      <a href="mailto:emailkamu@example.com" class="btn">
+        ✉ Hubungi Saya
+      </a>
+      <a href="https://www.instagram.com/" class="btn" target="_blank">
+        Instagram
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Nama Kamu | Website Portofolio
+  </footer>
+
+  <script>
+    // Tahun otomatis
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    // Animasi ketika bagian halaman terlihat
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll(".reveal").forEach((element) => {
+      observer.observe(element);
+    });
+  </script>
+
+</body>
 </html>
